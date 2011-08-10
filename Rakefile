@@ -1,21 +1,11 @@
-require "rubygems"
+require 'rubygems'
 require 'rake'
+require 'rspec/core/rake_task'
 require 'rake/rdoctask'
-require 'spec/rake/spectask'
 
-desc 'Default: run unit tests.'
-task :default => :spec
-
-desc "Runs the examples"
-Spec::Rake::SpecTask.new do |t|
-  t.spec_files = FileList[File.dirname(__FILE__) + '/spec/*_spec.rb']
-end
-
-desc "Generate code coverage"
-Spec::Rake::SpecTask.new(:coverage) do |t|
-  t.spec_files = FileList[File.dirname(__FILE__) + '/spec/*_spec.rb']
-  t.rcov = true
-  t.rcov_opts = ['--exclude', 'spec,/var/lib/gems,init.rb']
+desc "Run RSpec"
+RSpec::Core::RakeTask.new do |t|
+  t.verbose = false
 end
 
 desc 'Generate documentation for the conductor plugin.'
@@ -26,3 +16,5 @@ Rake::RDocTask.new(:rdoc) do |rdoc|
   rdoc.rdoc_files.include('README')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
+
+task :default => :spec
