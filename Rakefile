@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'rake'
 require 'rspec/core/rake_task'
-require 'rake/rdoctask'
+require 'rdoc/task'
 require 'jeweler'
 
 desc 'Run RSpec'
