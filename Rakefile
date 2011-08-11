@@ -27,7 +27,7 @@ Jeweler::Tasks.new do |gem|
   gem.homepage = 'https://github.com/uzzz/delegate_temporal'
   gem.authors = ['Jon Leighton', 'Max Zhilinsky']
 
-  gem.add_dependency 'active_support', '>= 3.0.0'
+  gem.add_dependency 'activesupport', '~> 3.0.0'
 end
 
 task :default => :spec
