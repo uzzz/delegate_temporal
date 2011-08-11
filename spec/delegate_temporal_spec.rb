@@ -9,7 +9,7 @@ class ARStub
     end
   end
 
-  include DelegateTemporal
+  include DelegateTemporal::Base
 end
 
 describe "An object with a temporal delegation of its 'start_time' to an 'appointment' object" do
