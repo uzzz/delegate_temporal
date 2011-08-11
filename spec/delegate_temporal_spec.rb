@@ -3,7 +3,7 @@ require 'active_support/core_ext/module/aliasing'
 require 'active_support/core_ext/module/delegation'
 
 class ARStub
-  def attributes=(new_attributes)
+  def attributes=(new_attributes, guard_protected_attributes = true)
     new_attributes.each_pair do |key, val|
       send("#{key}=", val)
     end
