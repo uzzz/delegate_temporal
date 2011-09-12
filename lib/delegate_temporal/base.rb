@@ -35,7 +35,12 @@ module DelegateTemporal
 
         send(to).attributes = attributes_to_delegate unless attributes_to_delegate.empty?
       end
-      self.send(:attributes_without_temporal_delegation=, new_attributes, guard_protected_attributes)
+
+      if ActiveRecord::VERSION::MINOR == 0
+        self.send(:attributes_without_temporal_delegation=, new_attributes, guard_protected_attributes)
+      else
+        self.send(:assign_attributes, new_attributes, :without_protection => !guard_protected_attributes)
+      end
     end
   end
 end

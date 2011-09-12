@@ -9,6 +9,12 @@ class ARStub
     end
   end
 
+  def assign_attributes(new_attributes = {}, options = {})
+    new_attributes.each_pair do |key, val|
+      send("#{key}=", val)
+    end
+  end
+
   include DelegateTemporal::Base
 end
 

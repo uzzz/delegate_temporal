@@ -25,9 +25,10 @@ Jeweler::Tasks.new do |gem|
     actual attribute is delegated to another object.}
   gem.email = ['j@jonathanleighton.com', 'uzzable@gmail.com']
   gem.homepage = 'https://github.com/uzzz/delegate_temporal'
-  gem.authors = ['Jon Leighton', 'Max Zhilinsky']
+  gem.authors = ['Jon Leighton', 'Max Zhylinski']
 
-  gem.add_dependency 'activesupport', '~> 3.0.0'
+  gem.add_dependency 'activesupport', '> 3.0.0'
+  gem.add_dependency 'activerecord', '> 3.0.0'
 end
 
 task :default => :spec
